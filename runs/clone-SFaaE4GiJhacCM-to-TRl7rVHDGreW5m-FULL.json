@@ -1,0 +1,19 @@
+{
+  "run": "merchant full-clone devstack dev-serve (test mode)",
+  "source_mid": "SFaaE4GiJhacCM",
+  "target_mid": "TRl7rVHDGreW5m",
+  "verified": {
+    "activation":       {"status":"ACTIVATED","activated":1,"live":1,"match":true},
+    "features":         {"status":"CLONED","count":7,"match":true},
+    "pricing":          {"status":"DEEP-COPIED","source_plan":"1In3Yh5Mluj605","target_plan":"m0Wp3hLKbahCV4","rules":45,"content_identical":true},
+    "bank_account":     {"status":"CLONED","match":true},
+    "business_attrs":   {"status":"ALIGNED","fields":["category","category2","international","purpose_code","channel"],"match":true},
+    "settlements_config":{"status":"CLONED","note":"all settlement-behavior keys matched; PAN/IEC/business_address/email/purpose derived from target KYC at read-time (correctly not forced)"},
+    "ledger_coa":       {"status":"ONBOARDED","event":"pg_merchant_onboarding + ondemand","ledger_account":"TRldx2hwBh4Yo2"},
+    "methods":          {"status":"DEFAULT","note":"source has no explicit methods row; both use category-based defaults; category aligned so defaults match"},
+    "dcs_configs":      {"status":"NO-OP","note":"source has zero DCS-backed configs (verified empty)"},
+    "terminals":        {"status":"NO-OP","note":"source has 0 terminals (verified via terminals service)"}
+  },
+  "how": "in-cluster api pod (harsh label, api image) driving monolith service classes + direct twirp to settlements/ledger/terminals/dcs cluster services via php artisan tinker",
+  "byproduct_targets_unused": ["TRl7KqN2HoiFxv","TRl5KWQ1CR7orW","TRl4jj0zXMUw9s"]
+}

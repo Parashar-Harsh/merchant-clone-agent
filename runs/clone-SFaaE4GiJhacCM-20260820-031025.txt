@@ -1,0 +1,4 @@
+merchant-clone-agent run 20260820-031025  source=SFaaE4GiJhacCM  modes=[test live]
+target=TRl7rVHDGreW5m
+@@APPLY={"mode":"test","pricing":"already_cloned","features":{"added":[]},"bank":"already_present","balance":"already_present","merchant_detail":"copied:35","business_attrs":"copied:13","settlements":"update_http:200","ledger":"ok:TRldx2hwBh4Yo2","api_key":"err:The merchant keys have already been created","terminals":{"source":0,"created":[]}}@@
+@@APPLY={"mode":"live","pricing":{"new_plan":"bF9ZJ7plIkcKav","rules":67},"features":{"added":["otp_auth_default","new_banking_error","paymentlinks_v2","pg_ledger_reverse_shadow","enable_3ds2","enable_import_flow","ods_microservice","es_on_demand"]},"bank":"copied:1","balance":"already_present","merchant_detail":"copied:35","business_attrs":"copied:13","settlements":"update_http:500","ledger":"ok:TRmQmMF5m3lS1u","api_key":"minted:ok","terminals":{"source":1,"created":[]}}@@

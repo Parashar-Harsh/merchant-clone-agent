@@ -1,0 +1,20 @@
+{
+  "run": "merchant-clone devstack dev-serve (test mode)",
+  "source_mid": "SFaaE4GiJhacCM",
+  "target_mid": "TRl7rVHDGreW5m",
+  "target_created_via": "Merchant\\Core::create (in-process, splitz url overridden to cluster svc)",
+  "domains": {
+    "features": {"status":"CLONED","match":true,"values":["enable_3ds2","enable_import_flow","es_on_demand","new_banking_error","ods_microservice","otp_auth_default","paymentlinks_v2"]},
+    "pricing": {"status":"DEEP-COPIED","source_plan":"1In3Yh5Mluj605","target_plan":"m0Wp3hLKbahCV4","rules":45,"content_identical":true},
+    "bank_account": {"status":"CLONED","match":true,"ifsc":"RZPB0000000","acc_last4":"2592"},
+    "activation": {"status":"ACTIVATED","activated":1,"live":1}
+  },
+  "deferred_domains": {
+    "methods": "methods table not in local api DB (payment-methods microservice) - needs service API",
+    "dcs_configs": "DCS service - needs /v1/kv API",
+    "ledger_coa": "ledger service - needs CreateOnEvent API",
+    "settlements_config": "settlements service twirp - needs merchant_config API",
+    "terminals": "source has 0 direct terminals; submerchant map not local - no-op for this source"
+  },
+  "byproduct_targets_unused": ["TRl7KqN2HoiFxv","TRl5KWQ1CR7orW","TRl4jj0zXMUw9s"]
+}

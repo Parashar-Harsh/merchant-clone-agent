@@ -82,3 +82,4 @@ PLAN.md           # design + verified API map + mandatory dual-mode section
 - In prod, terminals' UPI VPA would need real PSP provisioning; here the record satisfies parity.
 - The helper pod self-expires (`sleep 14400`); `ensure-pod.sh` recreates it on demand.
 # merchant-clone-agent
+

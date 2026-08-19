@@ -1,0 +1,4 @@
+merchant-clone-agent run 20260820-031349  source=SFaaE4GiJhacCM  modes=[test live]
+target=TRl7rVHDGreW5m
+@@APPLY={"mode":"test","pricing":{"plan":"CLN6403d330cef","rules_added":45,"rules_total":45},"features":{"added":[]},"bank":"already_present","balance":"already_present","merchant_detail":"copied:35","business_attrs":"copied:13","settlements":"update_http:200","ledger":"ok:TRldx2hwBh4Yo2","api_key":"err:The merchant keys have already been created","terminals":{"source":0,"created":[]}}@@
+@@APPLY={"mode":"live","pricing":{"plan":"CLN6403d330cef","rules_added":67,"rules_total":67},"features":{"added":[]},"bank":"already_present","balance":"already_present","merchant_detail":"copied:35","business_attrs":"copied:13","settlements":"update_http:500","ledger":"ok:TRmQmMF5m3lS1u","api_key":"err:The merchant keys have already been created","terminals":{"source":1,"created":[]}}@@
