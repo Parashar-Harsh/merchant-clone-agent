@@ -20,3 +20,16 @@ single-mode cloning is insufficient. Both modes now converge.
    a different clone-plan id per mode → live run overwrote test's assignment. Fixed: deterministic
    shared plan id (CLN+sha1(TGT)) with per-mode rules cloned under it.
 2. settlements Update flakes with HTTP 500 (linked-account schedule propagation). Fixed: retry x3.
+
+## Re-run on a FRESH target (proves fixes from scratch) — TRoXKK5lCXU0mA
+`bin/clone.sh --source SFaaE4GiJhacCM --mint`  → both modes green:
+- pricing: SAME plan CLNbfb14cf426b in test (45 rules) AND live (67 rules), content_identical both  [fix #1 ✓]
+- settlements: update_http:200 both modes, behavior_match  [fix #2 ✓]
+- terminals: live 1/1 config_match (created TRoZ7tdsFCSiSC)  [fix #3 ✓]
+- features 7/7 (test) 8/8 (live), bank/balance/keys match
+
+## Additional bugs found+fixed this pass
+3. apply.php terminals: `json_decode()` threw when terminals-service returns currency/type as arrays
+   (not JSON strings). Fixed with `mca_asarray()` coercion helper in _bootstrap.php.
+4. ensure-pod.sh: `mapfile` is bash 4+ (macOS ships 3.2) → replaced with portable while-read.
+5. ensure-pod.sh: stale Completed/Error pod blocked re-create → now force-deletes before recreate.

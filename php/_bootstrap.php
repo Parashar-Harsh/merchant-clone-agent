@@ -65,6 +65,13 @@ if (!function_exists('mca_boot')) {
         return app('repo')->merchant->findOrFailPublic($mid);
     }
 
+    /** coerce a value that may be a JSON string OR already an array into an array. */
+    function mca_asarray($v, array $default = []): array {
+        if (is_array($v)) return $v;
+        if (is_string($v) && $v !== '') { $d = json_decode($v, true); if (is_array($d)) return $d; }
+        return $default;
+    }
+
     /** twirp POST helper (used for settlements). */
     function mca_twirp(string $base, string $auth, string $path, array $body): array {
         $ch = curl_init("$base/twirp/$path");

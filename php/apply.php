@@ -175,8 +175,9 @@ try {
             'procurer' => $t['procurer'] ?? 'razorpay',
             'category' => $t['category'] ?? null, 'mode' => $t['mode'] ?? 3, 'tpv' => $t['tpv'] ?? 0,
             'enabled' => true, 'status' => $t['status'] ?? 'activated',
-            'currency' => json_decode($t['currency'] ?? '["INR"]', true) ?: ['INR'],
-            'type' => json_decode($t['type'] ?? '[]', true) ?: [],
+            // terminals service returns currency/type as JSON string OR array depending on path
+            'currency' => mca_asarray($t['currency'] ?? null, ['INR']),
+            'type' => mca_asarray($t['type'] ?? null, []),
         ];
         foreach (['card','upi','netbanking','emi','cardless_emi','paylater','app','bank_transfer',
                   'cc_on_upi','credit_line_on_upi','wallet_on_upi'] as $mflag)
